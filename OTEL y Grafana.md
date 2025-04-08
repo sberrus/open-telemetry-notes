@@ -39,3 +39,24 @@ OTEL no ofrece almacenamiento de la telemetría que procesa y tampoco visualizac
 - Mimir: Almacenamiento de métricas.
 
 Cada una de estas soluciones ofrecen una forma de poder consultar los datos que se almacenan.
+
+## Instrumentación
+La instrumentación se refiere al `cómo` podemos recopilar estos datos y como les damos forma para poder analizarlos posteriormente. En el caso de OTEL, tenemos 3 tipos de instrumentación.
+
+### Manual
+Dentro del código definimos los spans y las métricas y el cómo se irán propagando los datos en el ciclo de vida de las llamadas. Esto tiene sus ventajas y desventajas:
+
+- Ventajas: Flexibilidad máxima; soporte para todos los lenguajes.
+- Desventajas: Requiere cambios en el código de las aplicaciones y servicios; Requiere un conocimiento profundo de OpenTelemetry; Mezcla instrumentación con lógica de negocio.
+
+### Librerias de instrumentación
+Esta solución es más fácil de adaptar al código ya que requiere menos cambios a nivel de código que otras soluciones.
+- Ventajas: Desacopla la instrumentación del resto de la lógica de negocio y también es ampliamente soportado por los lenguajes.
+- Desvcentajas: Requiere cambios en el código y se debe conocer que librerias utilizar para realizar las instrumentaciones.
+
+### Instrumentación automatica
+Esta es la opción más `ready to go` respecto a la instrumentación de aplicaciones ya que este se inyecta directamente en el código al cual queremos instrumentar.
+
+- Ventajas: No se necesita cambios ne el código ni dependencias adicionales.
+- Desventajas: Flexibilidad limitada; No disponible en todos los lenguajes.
+
